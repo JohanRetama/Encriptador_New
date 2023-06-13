@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+	<head>
+
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Encriptador</title>
+		<link rel="stylesheet" href="reset.css">
+		<link rel="stylesheet" href="style.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+
+	</head>
+
+	<body class="cuerpo">
+		<img id="logo" src="logo_j_v2.png">
+		<textarea id="Caja_encriptar"  placeholder="Ingrese el texto aquí"></textarea>
+		<div id="exclamacion">
+			<img id="img_exclamacion" src="exclamacion.png", alt="Signo exclamación">
+			<div id="texto_exclamacion">Solo letras minúsculas y sin acentos</div>
+		</div>
+		<button class="B_encriptar" onclick="boton_encriptar()">Encriptar</button>
+		<button class="B_desencriptar" onclick="boton_desencriptar()">Desencriptar</button>
+
+		<div id="contenedor">
+			<img id="imagen" src="stand.png", alt="ImagenS Standby">
+		</div>
+	</body>
+
+</html>
+
+
+<script>
+
+	function boton_encriptar(){
+		resetear();
+		codificarTexto();
+
+	}
+
+	function boton_desencriptar(){
+		resetear();
+		decodificarTexto();
+	}
+
+
+	function limpiarDiv() {
+  		var div = document.getElementById("contenedor");
+  		while (div.firstChild) {
+    		div.removeChild(div.firstChild);
+		}
+	}
+
+	function resetear() {
+		limpiarDiv();
+
+		var cuadroTexto = document.createElement("textarea");
+		cuadroTexto.id = "cuadroTexto"
+
+		contenedor.appendChild(cuadroTexto);
+		document.getElementById("cuadroTexto").readOnly = true;
+		generarBotonCopiar()
+		limpiarCuadro()
+
+	}
+
+	function codificarTexto(){
+		var texto = document.getElementById("Caja_encriptar").value;
+		var cambios = {
+			"a": "j",
+			"b": "k",
+			"c": "l",
+			"d": "m",
+			"e": "n",
+			"f": "ñ",
+			"g": "o",
+			"h": "p",
+			"i": "q",
+			"j": "r",
+			"k": "s",
+			"l": "t",
+			"m": "u",
+			"n": "v",
+			"ñ": "w",
+			"o": "x",
+			"p": "y",
+			"q": "z",
+			"r": "a",
+			"s": "b",
+			"t": "c",
+			"u": "d",
+			"v": "e",
+			"w": "f",
+			"x": "g",
+			"y": "h",
+			"z": "i",						
+		};
+
+		var textoModificado = texto.replace(/[abcdefghjiklmnñopqrstuvwxyz]/g, function(letra) {
+    		return cambios[letra];
+  		});
+  		document.getElementById("cuadroTexto").value = textoModificado;
+	}
+
+	function decodificarTexto(){
+		var texto = document.getElementById("Caja_encriptar").value;
+		var cambios ={
+			"j": "a",
+			"k": "b",
+			"l": "c",
+			"m": "d",
+			"n": "e",
+			"ñ": "f",
+			"o": "g",
+			"p": "h",
+			"q": "i",
+			"r": "j",
+			"s": "k",
+			"t": "l",
+			"u": "m",
+			"v": "n",
+			"w": "ñ",
+			"x": "o",
+			"y": "p",
+			"z": "q",
+			"a": "r",
+			"b": "s",
+			"c": "t",
+			"d": "u",
+			"e": "v",
+			"f": "w",
+			"g": "x",
+			"h": "y",
+			"i": "z",
+		};
+  		var textoModificado = texto.replace(/z|x|y|w|v|u|t|s|r|q|p|o|ñ|n|m|l|k|j|i|h|g|f|e|d|c|b|a/g, function(letra) {
+    		return cambios[letra];
+			});
+
+  		document.getElementById("cuadroTexto").value = textoModificado;
+	}
+
+
+	function generarBotonCopiar() {
+		// Crear el elemento del botón
+		var boton = document.createElement("button");
+		boton.id = "boton_copia"
+	  
+		// Agregar texto al botón
+		boton.textContent = "Copiar";
+	  
+		// Obtener el cuadro de texto
+		var cuadroTexto_copia = document.getElementById("cuadroTexto");
+	  
+		// Agregar un controlador de eventos al botón
+		boton.addEventListener("click", function() {
+	    // Seleccionar el contenido del cuadro de texto
+	    cuadroTexto_copia.select();
+	    
+	    // copia el contenido al portapapeles
+	    document.execCommand("copy");
+	  	});
+	  
+		// Obtener el elemento contenedor donde se agregará el botón
+		var contenedor_copia = document.getElementById("contenedor");
+	  
+		// Agregar el botón al contenedor
+		contenedor.appendChild(boton);
+	}
+
+	function limpiarCuadro(){
+		// Obtener el cuadro de texto
+		var cuadroTexto = document.getElementById("Caja_encriptar");
+
+		// Agregar un controlador de eventos al cuadro de texto
+		cuadroTexto.addEventListener("click", function() {
+			
+			// Borrar el contenido del cuadro de texto
+			cuadroTexto.value = "";
+		});
+
+	}
+</script>
