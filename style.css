@@ -1,0 +1,89 @@
+body{
+	background-color:#f4f4fc;
+}
+
+#logo{
+	position: absolute; top: 30px; left: 30px;
+	width: 30px;
+	height: 60px;
+}
+
+#Caja_encriptar{
+	position: absolute; top:100px; left: 100px;
+	color: #1d2673;
+	background-color: inherit;
+	width: 800px;
+	height: 380px;
+	text-align: left;
+	vertical-align: top;
+	border-radius: 10px;
+	border: none;
+	font-size: 30px;
+	padding: 10px;
+}
+
+
+#img_exclamacion{
+	width: 10px;
+	height: 10px;
+	position: absolute;top: 523px; left: 100px;
+}
+
+#texto_exclamacion{
+	position: absolute; top: 520px; left: 115px;
+}
+
+.B_encriptar{
+	background-color: #1d2673;
+	width: 400px;
+	height: 50px;
+	position: absolute; top: 550px; left: 100px;
+	border-radius: 10px;
+	font-size: 20px;
+	border-color: #d1d9e5;
+	color: #d1d9e5;
+}
+
+.B_desencriptar{
+	background-color: #d8dee9;
+	width: 400px;
+ 	height: 50px;
+	position: absolute; top: 550px; left: 505px;
+	border-radius: 10px;
+	font-size: 20px;
+	border-color: #2d4182;
+	color: #2d4182;
+}
+
+#imagen{
+	width: 250px;
+	height: 565px;
+	position: absolute; top: 50px;left: 950px;
+	border-radius: 10px;
+	font-size: 20px;
+	text-align: left; /* Alineación del texto a la izquierda */
+	vertical-align: top; /* Alineación vertical en la parte superior */
+}
+
+#cuadroTexto{
+	width: 240px;
+	height: 550px;
+	position: absolute; top: 50px;left: 950px;
+	border-radius: 10px;
+	font-size: 20px;
+	text-align: left; /* Alineación del texto a la izquierda */
+	vertical-align: top; /* Alineación vertical en la parte superior */	
+	border: none;
+	padding: 10px;
+}
+
+
+#boton_copia{
+	width: 200px;
+	height: 50px;
+	position: absolute;top: 550px;left: 975px;
+	border-radius: 10px;
+	font-size: 20px;
+	border-color: #2d4182;
+	color: #2d4182;
+}
